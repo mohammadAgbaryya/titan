@@ -44,3 +44,29 @@ POST http://localhost:3000/orders
 
 GET http://localhost:3000/orders/mohammad
 ```
+
+## Future Improvements and Refactoring
+
+If I had more time, I would clean and improve the codebase by implementing the following enhancements:
+
+- **Separation of Concerns**:
+  - Move business logic to dedicated service and utility layers, keeping the route handlers focused only on routing and request/response management.
+- **Validation**:
+
+  - Add validation checks for request data (e.g., validating emails, required fields).
+
+- **Logging**:
+
+  - Add structured logging throughout the application to track errors, requests, and performance.
+
+- **Metrics and Monitoring**:
+
+  - Integrate metrics and monitoring tools for tracking performance, errors, and usage.
+
+- **Unit Testing**:
+
+  - Implement unit tests for core business logic and edge cases.
+
+- **Code Formatting and Development Standards**:
+  - Add tools like **Prettier** and **ESLint** to enforce consistent code formatting and coding styles across the development team.
+  - Use **Husky** for pre-commit hooks to ensure linting, formatting, and tests are run before any code is pushed.

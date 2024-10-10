@@ -18,17 +18,20 @@ export const query = (text: string, params?: any) => pool.query(text, params);
 // Function to check and create the table if it doesn't exist
 export async function createOrdersTable() {
   const createTableQuery = `
-        CREATE TABLE IF NOT EXISTS orders (
-            id SERIAL PRIMARY KEY,
-            email VARCHAR(255) NOT NULL,
-            full_name VARCHAR(255) NOT NULL,
-            full_address TEXT NOT NULL,
-            images_urls TEXT[], 
-            frame_color VARCHAR(50),
-            user_id VARCHAR(50),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        );
-    `;
+    CREATE TABLE IF NOT EXISTS orders (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        full_name VARCHAR(255) NOT NULL,
+        full_address TEXT NOT NULL,
+        images_urls TEXT[], 
+        frame_color VARCHAR(50),
+        user_id VARCHAR(50),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Create an index on the user_id column for faster queries
+    CREATE INDEX IF NOT EXISTS idx_user_id ON orders(user_id);
+`;
 
   try {
     await query(createTableQuery);
