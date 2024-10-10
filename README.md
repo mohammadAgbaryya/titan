@@ -45,6 +45,23 @@ POST http://localhost:3000/orders
 GET http://localhost:3000/orders/mohammad
 ```
 
+## Orders POST body
+
+```
+{
+  "email": "moha@example.com",
+  "full_name": "moha agba",
+  "full_address": "123 Main St, Anytown, USA",
+  "images_urls": [
+    "https://pixabay.com/get/photo1.jpg",
+    "https://pixabay.com/get/photo2.jpg",
+    "https://pixabay.com/get/photo3.jpg"
+  ],
+  "frame_color": "black",
+  "user_id": "moha123"
+}
+```
+
 ## Future Improvements and Refactoring
 
 If I had more time, I would clean and improve the codebase by implementing the following enhancements:
