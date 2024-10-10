@@ -33,5 +33,4 @@ app.use(router.routes()).use(router.allowedMethods());
 const PORT = process.env.SERVER_PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-    console.log(`Photos example route: http://localhost:${PORT}/photos/3`);
 });

@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 import { fetchPixabayImages } from '../services/pixabayService';
 import { query } from '../db';
-import OrderRequestBody from '../interfaces/order.interface';
+import Order from '../models/Order';
 
 const router = new Router();
 
@@ -22,9 +22,10 @@ router.get('/photos/:num', async (ctx) => {
         ctx.body = { error: 'Failed to fetch images' };
     }
 });
+
 // Route to save orders
 router.post('/orders', async (ctx) => {
-    const body = ctx.request.body as OrderRequestBody;
+    const body = ctx.request.body as Order;
     const { email, full_name, full_address, images_urls, frame_color, user_id } = body;
 
     if (!email || !full_name || !full_address || !images_urls || !frame_color || !user_id) {

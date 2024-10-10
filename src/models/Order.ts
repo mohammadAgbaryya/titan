@@ -1,4 +1,4 @@
-export default interface OrderRequestBody {
+export default interface Order {
     email: string;
     full_name: string;
     full_address: string;

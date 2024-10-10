@@ -42,5 +42,5 @@ GET http://localhost:3000/photos/5
 
 POST http://localhost:3000/orders
 
-GET http://localhost:3000/orders/userId
+GET http://localhost:3000/orders/mohammad
 ```
