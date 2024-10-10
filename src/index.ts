@@ -1,6 +1,11 @@
 import Koa from 'koa';
+import dotenv from 'dotenv';
 import bodyParser from 'koa-bodyparser';
 import router from './routes/mainRoute';
+import { createOrdersTable } from './db';
+
+// Load environment variables
+dotenv.config();
 
 const app = new Koa();
 
@@ -19,10 +24,13 @@ app.use(async (ctx, next) => {
     }
 });
 
+// Call the function to create the orders table if it doesn't exist
+createOrdersTable();
+
 // Use the router
 app.use(router.routes()).use(router.allowedMethods());
 
-const PORT = 3000;
+const PORT = process.env.SERVER_PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
     console.log(`Photos example route: http://localhost:${PORT}/photos/3`);
